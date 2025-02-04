@@ -1,0 +1,85 @@
+﻿Test Case for Input "33#"
+
+Expected Output: "E"
+
+Step			Character					Action										Current Output
+
+1				'3'							Pressed 3 once → Start new group			"" (processing "3")
+2				'3'							Pressed 3 twice → 'E'	"E"
+3				'#'							End input processing	"E"
+
+Final Output: "E"
+
+----------------------------------------------------------------------------------------------------------
+
+Test Case for Input "227*#"
+
+Expected Output: E
+
+Step	        Character	                Action	                                        Current Output
+1	            '4'	                        Pressed 4 once → Start new group	            "" (processing "4")
+2	            '2'	                        Pressed 2 once → Start new group	            "H"
+3	            '2'	                        Pressed 2 twice → 'B'	                        "B"
+4	            '7'	                        Pressed 7 once → Start new group	            "B" (processing "7")
+5	            '7'	                        Pressed 7 twice → 'P'	                        "BP"
+6	            '*'	                        Backspace → Removes 'P'	                        "B"
+7	            '#'	                        End input processing	                        "B"
+
+Final Output: "B"
+
+------------------------------------------------------------------------------------------------------------
+
+Test Case for Input "4433555 555666#"
+
+Expected Output: "HELLO"
+
+Step	        Character	                Action	                                        Current Output
+
+1	            '4'	                        Pressed 4 once → Start new group	            "" (processing "4")
+2	            '4'	                        Pressed 4 twice → 'H'	                        "H"
+3	            '3'	                        Pressed 3 once → Start new group	            "H" (processing "3")
+4	            '3'	                        Pressed 3 twice → 'E'	                        "HE"
+5	            '5'	                        Pressed 5 once → Start new group	            "HE" (processing "5")
+6	            '5'	                        Pressed 5 twice → 'J'	                        "HEJ"
+7	            '5'	                        Pressed 5 three times → 'L'	                    "HEL"
+8	            ' ' (space)	                Process previous group → "HEL" remains	        "HEL"
+9	            '5'	                        Pressed 5 once → Start new group	            "HEL" (processing "5")
+10	            '5'	                        Pressed 5 twice → 'J'	                        "HELJ"
+11	            '5'	                        Pressed 5 three times → 'L'	                    "HELL"
+12	            '6'	                        Pressed 6 once → Start new group	            "HELL" (processing "6")
+13	            '6'	                        Pressed 6 twice → 'N'	                        "HELLN"
+14	            '6'	                        Pressed 6 three times → 'O'	                    "HELLO"
+15	            '#'	                        End input processing	                        "HELLO"
+
+Final Output: "HELLO"
+
+------------------------------------------------------------------------------------------------
+
+
+Test Case for Input ""8 88777444666*664#""
+
+Expected Output: "TURING"
+
+Step	            Character	            Action	                                            Current Output
+
+1	                '8'	                    Pressed 8 once → 'T'	                            "T"
+2	                ' ' (space)	            Process previous group → 'T' remains	            "T"
+3	                '8'	                    Pressed 8 once → Start new group	                "T" (processing "8")
+4	                '8'	                    Pressed 8 again → 'U'	                            "TU"
+5	                '7'	                    Pressed 7 once → Start new group	                "TU" (processing "7")
+6	                '7'	                    Pressed 7 again → 'P' → "TU"	
+7	                '7'	                    Pressed 7 again → 'Q' → "TU"	
+8	                '4'	                    New digit → 'R' added	                            "TUR"
+9	                '4'	                    Pressed 4 twice → 'I'	                            "TURI"
+10	                '4'	                    Pressed 4 three times → 'I' remains	                "TURI"
+11	                '6'	                    Pressed 6 once → Start new group	                "TURI" (processing "6")
+12	                '6'	                    Pressed 6 twice → 'N'	                            "TURIN"
+13	                '6'	                    Pressed 6 three times → 'N' remains	                "TURIN"
+14	                '*'	                    Backspace → Removes 'N'	                            "TURI"
+15	                '6'	                    Pressed 6 once → Start new group	                "TURI" (processing "6")
+16	                '6'	                    Pressed 6 twice → 'N'	                            "TURIN"
+17	                '4'	                    Pressed 4 once → 'G'	                            "TURING"
+18	                '#'	                    End input processing	                            "TURING"
+
+
+Final Output:   "TURING"
